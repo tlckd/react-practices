@@ -4,8 +4,7 @@ var express = require('express');
 
 var port = 9090;
 
-
-var application = express().use(express.static(path.join(__dirname, 'public')))
+var application = express().use(express.static(path.join(__dirname, 'public')));
 http
     .createServer(application)
     .on('listening', function(){
