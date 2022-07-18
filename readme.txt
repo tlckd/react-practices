@@ -1,6 +1,6 @@
 React Practices
 1. 기본개념(Basics) **
-2. 컴포넌트(Component) **
+2. 컴포넌트(Component) *****
 3. 라우팅(Rounting) **
 4. Flux: Redux *
 5. Testing(Rest)
@@ -10,4 +10,3 @@ React Practices
 8. [참고1] webpack-practices *
 9. [참고2] babel-practices *
 
-러닝리액트 책 참고 
