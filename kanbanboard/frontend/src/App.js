@@ -1,10 +1,11 @@
 import React from 'react'
 import KanbanBoard from './KanbanBoard'
+//import styles from './assets/css/App.css'
 
 const App = () => {
 
   return (
-    <div id={'App'}>
+    <div id={'styles.App'}>
       <KanbanBoard />
     </div>
   )
