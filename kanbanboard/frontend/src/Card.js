@@ -1,13 +1,31 @@
-import React from 'react';
-//import styles from './assets/scss/Card.scss';
+import React, {useState} from 'react';
+import styles from './assets/scss/Card.scss';
+import TaskList from './TaskList';
 
-function card(props) {
+function card({no, title, description, status, tasks}) {
+
+    const[showDetail,setShowDetail] =useState(false);
+
     return (
-        <div className={'styles.card'}>
-             <div class='Card__Title'>{props.title}</div>
-             <div class='Card__Details'>{props.description}</div>
-             console.log("테스트 출력 " + {props.description})
+
+        <div className={styles.Card}>
+             <div className={[styles.Card__Title, styles.Card__Title__Open].join(" ")}
+                onClick={e=>{setShowDetail(!showDetail) }}> 
+                {title}
+             </div>
+
+
+             {
+                showDetail?  
+                    <div className={'Card_Details'}>
+                        {description}
+                        <TaskList tasks={tasks}/>    
+                    </div>
+                : null
+            }
+
         </div>
+
     );
 }
 

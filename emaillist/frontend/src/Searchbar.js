@@ -1,10 +1,14 @@
 import React from 'react';
 import styles from './assets/css/styles.css';
 
-function Searchbar() {
+function Searchbar(props) {
     return (
         <div className={styles.Searchbar}>
-            찾기: <input type='text' placeholder='search'/>
+            <input type='text' placeholder='search'
+            onChange={e=>{
+                props.callback(console.log(e.target.value));
+            }}
+            />
         </div>
     );
 }

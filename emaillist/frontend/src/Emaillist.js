@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './assets/css/styles.css';
 
-function Emaillist({emails}) {
+function Emaillist({emails, callback}) {
     return (
         <ul className={styles.Emaillist}>
                 {emails.map((email) => {return (
