@@ -8,16 +8,14 @@ function CardList({title, cards}) {
         <div className={styles.CardList}>
             <h1>{title}</h1>
             {cards.map(
-                (card)=>{
-                    console.log("tttt", card);
-                    return(<Card
+                (card)=>
+                    <Card
                         key={card.no}
                         no={card.no}
                         title={card.title}
                         status={card.status}
                         description={card.description}
                         tasks={card.tasks}/>
-            )}
             )}
         </div>
     );

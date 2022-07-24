@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import Clock02 from './Clock';
+import Clock from './Clock';
 
 function Content() {
     return (

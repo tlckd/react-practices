@@ -5,7 +5,6 @@ import TaskList from './TaskList';
 function card({no, title, description, status, tasks}) {
 
     const[showDetail,setShowDetail] =useState(false);
-
     return (
 
         <div className={styles.Card}>
@@ -14,6 +13,9 @@ function card({no, title, description, status, tasks}) {
                 {title}
              </div>
 
+            {
+                console.log('카드에 들어옴')
+            }
 
              {
                 showDetail?  

@@ -91,8 +91,7 @@ export default function App() {
 
             <Modal
                 isOpen={modal05IsOpen}
-                onRequestClose={ () => setModal05IsOpen(false) }
-                shouldCloseOnOverlayClick={ true }
+
                 className={ styles.Modal }
                 overlayClassName={ styles.Overlay }
                 style={ {content: {width: 350}} }

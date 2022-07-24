@@ -1,42 +1,33 @@
 import React, {useState} from 'react';
+import RegisterForm from './RegisterForm';
+import SearchBar from './SearchBar';
 import Emaillist from './Emaillist';
-import Searchbar from './Searchbar';
-import styles from './assets/css/styles.css';
-import data from './assets/json/data.json';
-import { func } from 'prop-types';
+import data from './assets/json/data.json'
+import './assets/scss/App.scss';
 
-function App() {
-    const [emails, setEmails] = useState(data);
+const App = () => {
+  const [emails, setEmails] = useState(data);
 
-    const notifyEmailDelete = function(no){
-        console.log(no)
-    }
-    
-    const notifyEmailAdd = function(email){
-        
-        console.log(email);
-        const response =fetch('/api',{ //이런시긍로 추가하면됨 
-            method: 'post',
-            headers: {
-                'Content-Type': '',
-                'Accept': ''
-            },
-            body: JSON.stringify(email)
-        });
+  const notifyEmailDelete = function(no) {
+    console.log(no);
+  }
 
-        response
-    }
+  const notifyEmailAdd = function(email) {
+    console.log(email);
+  }
 
-    const notifyKeywordChanged = function(keyword){ 
-        emails.filter(email=>email.firstName.indexOf(keyword)!= -1 || email.lastName.indexOf(keyword)) // indexOf로 키워드가 이쓴ㄴ지 없는지 필터링으로 검사한다음 set으로 바꿔치기 나중에 강사님 코드 보기 
-    }
+  const notifyKeywordChanged = function(keyword) {
+    const result = data.filter(e => e.firstName.indexOf(keyword) !== -1 || e.lastName.indexOf(keyword) !== -1 || e.email.indexOf(keyword) !== -1);
+    setEmails(result);
+  }
 
-    return (
-        <div id={styles.App}>
-            <Searchbar callback={notifyKeywordChanged}/> 
-            <Emaillist emails={emails} callback={notifyEmailAdd}/>
-        </div>
-    );
+  return (
+    <div id={'App'}>
+      <RegisterForm callback={notifyEmailAdd} />
+      <SearchBar callback={notifyKeywordChanged} />
+      <Emaillist emails={emails} />
+    </div>
+  )
 }
 
-export default App;
+export default App
