@@ -8,12 +8,33 @@ import './assets/scss/App.scss';
 const App = () => {
   const [emails, setEmails] = useState(data);
 
-  const notifyEmailDelete = function(no) {
-    console.log(no);
+  
+  const notifyEmailDelete = function(keyword) {
+    const result = emails.filter(e =>{ 
+      return e.email.indexOf(keyword) == -1
+    })
+    setEmails(result);
   }
 
-  const notifyEmailAdd = function(email) {
-    console.log(email);
+
+  const notifyEmailAdd = function(addEmail) {
+    const nextNo=emails.length+1;
+    // addData={
+    //   no:nextNo,
+    //   firstName:addEmail.firstName,
+    //   lastName:addEmail.lastName,
+    //   email:addEmail.email
+    // }
+
+    //setEmails(emails.concat(addData));
+
+    setEmails(emails.concat({
+      no:nextNo,
+      firstName:addEmail.firstName,
+      lastName:addEmail.lastName,
+      email:addEmail.email
+    }));
+
   }
 
   const notifyKeywordChanged = function(keyword) {
@@ -25,7 +46,7 @@ const App = () => {
     <div id={'App'}>
       <RegisterForm callback={notifyEmailAdd} />
       <SearchBar callback={notifyKeywordChanged} />
-      <Emaillist emails={emails} />
+      <Emaillist emails={emails} callback={notifyEmailDelete} />
     </div>
   )
 }
