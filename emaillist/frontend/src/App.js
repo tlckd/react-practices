@@ -19,21 +19,21 @@ const App = () => {
 
   const notifyEmailAdd = function(addEmail) {
     const nextNo=emails.length+1;
-    // addData={
-    //   no:nextNo,
-    //   firstName:addEmail.firstName,
-    //   lastName:addEmail.lastName,
-    //   email:addEmail.email
-    // }
-
-    //setEmails(emails.concat(addData));
-
-    setEmails(emails.concat({
+    const addData={
       no:nextNo,
       firstName:addEmail.firstName,
       lastName:addEmail.lastName,
       email:addEmail.email
-    }));
+    }
+
+    setEmails(emails.concat(addData));
+
+    // setEmails(emails.concat({
+    //   no:nextNo,
+    //   firstName:addEmail.firstName,
+    //   lastName:addEmail.lastName,
+    //   email:addEmail.email
+    // }));
 
   }
 
