@@ -11,7 +11,7 @@ export default function App() {
                 색상변경
             </button>
             <br/>
-            <LifeCycle color={color}/>
+            <LifeCycle color={color}/> 
         </Fragment>
     );
 }
