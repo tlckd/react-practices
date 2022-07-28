@@ -22,9 +22,9 @@ export default function App() {
         const interval = setInterval(() => {
             setCurrentTime(getCurrentClockTime());
             setTicks(ticks+1);  
-        }, 1000);
+        }, 1000); 
 
-        return (() => {
+        return (() => { 
             clearInterval(interval);
         });       
     }, []);
