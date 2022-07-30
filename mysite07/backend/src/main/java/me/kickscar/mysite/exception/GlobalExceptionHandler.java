@@ -1,4 +1,4 @@
-package me.kickscar.emailllist.exception;
+package me.kickscar.mysite.exception;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.extern.slf4j.Slf4j;
-import me.kickscar.emailllist.dto.JsonResult;
+import me.kickscar.mysite.dto.JsonResult;
 
-@Slf4j
 @ControllerAdvice
+@Slf4j
 public class GlobalExceptionHandler {
 	
 	@ExceptionHandler(Exception.class)
@@ -22,8 +22,7 @@ public class GlobalExceptionHandler {
 		// 1. 로깅(logging)
 		StringWriter errors = new StringWriter();
 		e.printStackTrace(new PrintWriter(errors));
-		//System.out.println(errors.toString());
-		log.info(errors.toString());
+		log.error(errors.toString());
 		
 		// 2. JSON 응답
 		return ResponseEntity.status(HttpStatus.OK).body(JsonResult.fail(errors.toString()));

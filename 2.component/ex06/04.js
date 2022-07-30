@@ -1,48 +1,40 @@
 import fs from 'fs';
 import update from 'react-addons-update';
 
-let state={
-    order : JSON.parse( fs.readFileSync('./json/data.json','utf-8'))
+let state = {
+    order: JSON.parse(fs.readFileSync('./json/data.json', 'utf-8')) 
 }
 
-// const newObject = update(objectInState, { [WHERE] : { [WHAT]: updateValue } });
-const updateOrder = update(stata.order,{
-
+const updateOrder = update(state.order,{
+    //  해당 패스의 값 변화1
     receive:{
-        $set: '부산시 해운대구 우동...' 
-    }, 
-
-    payment:{
-        method:{
-            $set:'Mobile'
-
+        $set: '부산시 해운대구 우동....'
+    },
+    //  해당 패스의 값 변화2
+    payment: {
+        method: {
+            $set: 'Mobile'
         }
-    }, 
-
-    products:{
-
-        0:{
-
-            amount : {
-                
-                $set: 100 
+    },
+    products: {
+        // 배열 요소 변경(패스는 배열이기 때문에 인덱스이다.)
+        0: {
+            amount: {
+                $set: 100
             }
         },
-
-        $push:[{
-                "no": "p002-001",
-                "name": "팬츠 스트라이프",
-                "price": 2000,
-                "amount": 1
-            }] 
+        // 배열 요소에 추가하기
+        $push: [{
+            no: "c002-003",
+            name: "블루양말",
+            price: 2000,
+            amount: 1
+        }]
     } 
 });
 
 console.log(
     state.order,
     updateOrder,
-    state.order === updateOrder 
-) 
-
-
- 
+    state.order === updateOrder
+    )

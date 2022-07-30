@@ -3,6 +3,7 @@ import './assets/scss/App.scss'
 import Clock from './Clock';
 
 export default function App() {
+    console.log("!!!");
     const getCurrentClockTime = () => {
         const now = new Date();
         const hours = now.getHours();
@@ -18,17 +19,23 @@ export default function App() {
     const [currentTime, setCurrentTime] = useState(getCurrentClockTime());
     const [ticks, setTicks] = useState(0);
 
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         setCurrentTime(getCurrentClockTime());
+    //         setTicks(ticks+1);  
+    //     }, 1000);
+
+    //     return (() => {
+    //         clearInterval(interval);
+    //     });       
+    // }, []);
+
     useEffect(() => {
-        const interval = setInterval(() => {
+        setTimeout(() => {
             setCurrentTime(getCurrentClockTime());
             setTicks(ticks+1);  
-        }, 1000); 
-
-        return (() => { 
-            clearInterval(interval);
-        });       
-    }, []);
-
+        }, 1000);
+    }, [currentTime]);
 
     return (
         <div>
