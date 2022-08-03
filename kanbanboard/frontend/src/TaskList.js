@@ -1,25 +1,33 @@
 import React from 'react';
-import styles from './assets/css/TaskList.css'
-import Task from './Task'
+import PropTypes from 'prop-types';
+import Task from './Task';
+import styles from './assets/css/TaskList.css';
 
-function TaskList({tasks}) {
+export default function TaskList({cardNo, tasks, callbackAddTask, callbackChangeTaskDone}) {
     return (
         <div className='TaskList'>
             <ul>
                 {tasks.map(task => <Task
-                    key={task.no}
-                    no={task.no}
-                    name={task.name}
-                    done={task.done}
-                />)}
+                                        key={task.no}
+                                        no={task.no}
+                                        name={task.name} 
+                                        done={task.done}
+                                        callback={callbackChangeTaskDone} />)}
             </ul>
-            <input  
+            <input
                 type='text'
                 className={styles.TaskList__add_task}
                 placeholder='태스크 추가'
-            ></input>
+                onKeyPress={(e) => {
+                    if (e.key === 'Enter') {
+                        callbackAddTask(e.target.value);
+                        e.target.value = '';
+                    }
+                }}/>
         </div>
     );
 }
 
-export default TaskList;
+TaskList.propTypes = {
+    tasks: PropTypes.arrayOf(PropTypes.shape(Task.propTypes))
+}

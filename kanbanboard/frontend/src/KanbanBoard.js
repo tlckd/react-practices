@@ -1,16 +1,49 @@
-import React from 'react';
-import cards from './assets/json/data.json'
-import CardList from './CardList';
-import styles from './assets/css/KanbanBoard.css';
+import React, {useEffect, useState} from 'react';
+import CardList from "./CardList";
+import styles from './assets/css/KabanBoard.css';
 
-function KanbanBoard() {
+export default function KanbanBoard() {
+    const [cards, setCards] = useState([]);
+    useEffect(async () => {
+        try {
+            const response = await fetch('/api/card', {
+                method: 'get',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`${response.status} ${response.statusText}`);
+            }
+
+            const json = await response.json();
+            if (json.result !== 'success') {
+                throw new Error(`${json.result} ${json.message}`);
+            }
+
+            setCards(json.data);
+        } catch (err) {
+            console.log(err.message);
+        }
+    }, []);
+
     return (
         <div className={styles.KanbanBoard}>
-            <CardList title={'ToDo'} cards={cards.filter(e => e.status === 'ToDo')}/>
-            <CardList title={'Doing'} cards={cards.filter(e => e.status === 'Doing')}/>
-            <CardList title={'Done'} cards={cards.filter(e => e.status === 'Done')}/>
+            <CardList
+                key='ToDo'
+                title='ToDo'
+                cards={cards.filter(card => card.status == 'ToDo')} />
+
+            <CardList
+                key='Doing'
+                title='Doing'
+                cards={cards.filter(card => card.status == 'Doing')} />
+
+            <CardList
+                key='Done'
+                title='Done'
+                cards={cards.filter(card => card.status == 'Done')} />
         </div>
     );
 }
-
-export default KanbanBoard;
