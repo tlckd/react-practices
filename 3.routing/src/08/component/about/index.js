@@ -1,13 +1,13 @@
-import React from 'react';
-import {Outlet} from 'react-router';
-import SiteLayout from "../../layout/SiteLayout";
-import Navigation from './Navigation';
+import React, {Fragment} from 'react';
+import SiteLayout from '../layout/SiteLayout' 
+import Navigation from '../../layout/Navigation';
+import { Outlet } from 'react-router';
 
 export default function About() {
     return (
-        <SiteLayout>
-            <Navigation />
-            <Outlet />
+        <SiteLayout> 
+                <Navigation/> 
+                <Outlet/>  
         </SiteLayout>
     );
 }
