@@ -1,6 +1,6 @@
 #! /bin/bash
 
-APPLICATION_NAME=mysite07 -> 변수임 내 프로젝트에 맞게 바꿔주자 
+APPLICATION_NAME=kanbanborad07
 SCRIPT_DIR=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
 PID=$(ps -ef | grep java | grep $APPLICATION_NAME.jar | awk '{print $2}')
 

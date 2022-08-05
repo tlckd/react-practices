@@ -1,13 +1,13 @@
 ## React Practices - Routing
 
-### ex01: React Router Basic I: Implemented in a Simple Way(hashchange event driven) -> 해시체인지 이벤트 거의 안씀 localhost:9090/#main localhost:9090/#guestbook
-### ex02: React Router Basic II: HTML5 history API
-### ex03: React Router Basic III: HashRouter &amp; BrowserRouter
-### ex04: React Router Basic V: Link VS NavLink
-### ex05: Styling &amp; Semantic Markup
-### ex06: Composition
-### ex07: Nesting Routes
-### ex08: BrowserRouter & SSR
+### src/01: React Router Basic I: Implemented in a Simple Way(hashchange event driven)
+### src/02: React Router Basic II: HTML5 history API
+### src/03: React Router Basic III: HashRouter &amp; BrowserRouter(x)
+### src/04: React Router Basic V: Link VS NavLink
+### src/05: Styling &amp; Semantic Markup
+### src/06: Composition
+### src/07: Nesting Routes
+### src/08: useRoute
 
 ### Install Dependency
 1. react-router: 6.0.x(2021.6 beta)

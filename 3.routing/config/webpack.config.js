@@ -40,7 +40,7 @@ module.exports = function(env) {
             liveReload: true,
             hot: true,
             compress: true,
-            histroyApiFallback: true
+            historyApiFallback: true
         }
     }
 }
